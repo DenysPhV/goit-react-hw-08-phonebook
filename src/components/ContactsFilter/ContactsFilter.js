@@ -1,27 +1,22 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import shortid from 'shortid';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { filterContacts } from 'redux/contacts/contacts-actions';
+import { getFilter } from 'redux/contacts/contacts-selectors';
 import s from './ContactsFilter.module.css';
 
-import { changeFilter } from 'redux/contacts/contacts-actions';
-
-const filterId = shortid.generate();
-
 const ContactsFilter = () => {
-  const filter = useSelector((state) => state.filter);
+  const valueFilter = useSelector(getFilter);
   const dispatch = useDispatch();
-  const onChangeFilter = (e) => dispatch(changeFilter(e.target.value));
 
   return (
-    <label htmlFor={filterId} className={s.label}>
-      <span>Filter contacts by name</span>
+    <label className={s.label}>
+      Find contact by name
       <input
         type="text"
-        value={filter}
-        onChange={onChangeFilter}
-        id={filterId}
         className={s.input}
+        value={valueFilter}
+        onChange={(e) => dispatch(filterContacts(e.target.value))}
       />
     </label>
   );

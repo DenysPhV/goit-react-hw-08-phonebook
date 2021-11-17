@@ -1,0 +1,51 @@
+div > a {
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+
+  padding: 0 30px;
+}
+
+.nav_link {
+  color: rgb(78, 78, 80);
+  font-weight: 400;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active {
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  display: inline-block;
+  border: solid transparent;
+  border-radius: 4px;
+  background-color: #e4e7fc;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+button:hover {
+  background-color: #fccdf5;
+}
+
+p {
+  margin: 0;
+}
